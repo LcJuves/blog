@@ -110,3 +110,4 @@ deploy:
   repo: git@github.com:LcJuves/blog.git
   # example, https://github.com/hexojs/hexojs.github.io
   branch: main
+  message: "Site updated: {{ now('yyyy-MM-dd HH:mm:ss') }}"
