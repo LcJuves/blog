@@ -1,1 +1,49 @@
-$(document).ready(function(){Stun.utils.showThemeInConsole(),CONFIG.shortcuts&&CONFIG.shortcuts.switchPost&&Stun.utils.registerSwitchPost(),CONFIG.externalLink&&Stun.utils.addIconToExternalLink("#footer"),Stun.utils.pjaxReloadBoot=function(){if(CONFIG.codeblock){var t=CONFIG.codeblock.style;t==="default"?(this.addCodeHeader(),this.addCopyButton()):t==="carbon"?(this.addCodeHeader("carbon"),this.addCopyButton("carbon")):t==="simple"&&this.addCopyButton("simple"),this.registerCopyEvent()}if(CONFIG.reward&&this.registerShowReward(),CONFIG.lazyload&&this.lazyLoadImage(),CONFIG.galleryWaterfall&&this.showImageToWaterfall(),CONFIG.externalLink){var e=".archive, .post-title";this.addIconToExternalLink(e)}CONFIG.fancybox?this.wrapImageWithFancyBox():CONFIG.zoomImage&&this.registerZoomImage()},Stun.utils.pjaxReloadBoot()});
+$(document).ready(function () {
+  Stun.utils.showThemeInConsole();
+
+  if (CONFIG.shortcuts && CONFIG.shortcuts.switchPost) {
+    Stun.utils.registerSwitchPost();
+  }
+
+  // Not reload this, because it's changeless.
+  if (CONFIG.externalLink) {
+    Stun.utils.addIconToExternalLink("#footer");
+  }
+
+  Stun.utils.pjaxReloadBoot = function () {
+    if (CONFIG.codeblock) {
+      var codeStyle = CONFIG.codeblock.style;
+      if (codeStyle === "default") {
+        this.addCodeHeader();
+        this.addCopyButton();
+      } else if (codeStyle === "carbon") {
+        this.addCodeHeader("carbon");
+        this.addCopyButton("carbon");
+      } else if (codeStyle === "simple") {
+        this.addCopyButton("simple");
+      }
+      this.registerCopyEvent();
+    }
+    if (CONFIG.reward) {
+      this.registerShowReward();
+    }
+    if (CONFIG.lazyload) {
+      this.lazyLoadImage();
+    }
+    if (CONFIG.galleryWaterfall) {
+      this.showImageToWaterfall();
+    }
+    if (CONFIG.externalLink) {
+      var CONTAINER = ".archive, .post-title";
+      this.addIconToExternalLink(CONTAINER);
+    }
+    if (CONFIG.fancybox) {
+      this.wrapImageWithFancyBox();
+    } else if (CONFIG.zoomImage) {
+      this.registerZoomImage();
+    }
+  };
+
+  // Initializaiton
+  Stun.utils.pjaxReloadBoot();
+});
