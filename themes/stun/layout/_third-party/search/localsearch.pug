@@ -206,7 +206,7 @@ script.
     $('.search-mask').css({ display: 'none' });
   }
 
-  window.addEventListener('DOMContentLoaded', function () {
+  window.addEventListener('load', function () {
     Stun.utils.pjaxReloadLocalSearch = function () {
       $('.header-nav-search').on('click', function (e) {
         e.stopPropagation();
