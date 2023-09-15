@@ -1,6 +1,8 @@
 link(href=theme.math.katex.css rel="stylesheet" integrity=theme.math.katex.css_integrity crossorigin="anonymous")
-script(defer src=theme.math.katex.js integrity=theme.math.katex.js_integrity crossorigin="anonymous")
-script(defer src=theme.math.katex.auto_render_js integrity=theme.math.katex.auto_render_js_integrity crossorigin="anonymous" onload="renderMathInElement(document.body);")
+if theme.math.katex.js
+  script(defer src=theme.math.katex.js integrity=theme.math.katex.js_integrity crossorigin="anonymous")
+if theme.math.katex.auto_render_js
+  script(defer src=theme.math.katex.auto_render_js integrity=theme.math.katex.auto_render_js_integrity crossorigin="anonymous" onload="renderMathInElement(document.body);")
 
 if theme.math.katex.copy_tex.enable
   if theme.math.katex.copy_tex.copy_tex_css
