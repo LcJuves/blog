@@ -31,6 +31,11 @@ bun run build
     cd public || exit
 
     (
+        cd archives || exit
+        minify_html index.html
+    )
+
+    (
         cd css || exit
         for file in ./*; do
             if [ "${file##*.}" = "css" ]; then
