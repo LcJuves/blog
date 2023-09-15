@@ -12,6 +12,7 @@ nav:
 # 导航栏菜单
 menu:
   home: 首页
+  articles: 文章
   archives: 归档
   categories: 分类
   tags: 标签

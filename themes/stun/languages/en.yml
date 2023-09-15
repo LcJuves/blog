@@ -12,6 +12,7 @@ nav:
 # Header menu
 menu:
   home: Home
+  articles: Articles
   archives: Archives
   categories: Categories
   tags: Tags

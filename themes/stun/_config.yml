@@ -52,6 +52,7 @@ sougou_site_verification:
 menu:
   home: / || fas fa-home
   archives: /archives/ || fas fa-folder-open
+  # articles: javascript:; || fas fa-feather-alt
   # categories: /categories/ || fas fa-layer-group
   # tags: /tags/ || fas fa-tags
   # You can add a secondary menu like follow.
@@ -60,9 +61,10 @@ menu:
 # Secondary menu
 submenu:
   # Add item of secondary menu in here.
-  # xxx1:
-  #   xxx1-1: /xxx1-1/ || fa(s|r|l|d|b) fa-xxx
-  #   xxx1-2: /xxx1-2/ || fa(s|r|l|d|b) fa-xxx
+  # articles:
+  #   archives: /archives/ || fas fa-folder-open
+  #   categories: /categories/ || fas fa-layer-group
+  #   tags: /tags/ || fas fa-tags
 
 menu_settings:
   # Only show by icon.
@@ -138,11 +140,11 @@ header:
   height: 80%
   # Background image of site header.
   bg_image:
-    enable: false
+    enable: true
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
-    url:
+    url: https://s.cn.bing.net/th?id=OHR.GlenariffForest_EN-CN1292703110_1920x1080.webp&qlt=50
   # Banner area.
   banner:
     # Effective for all pages.
@@ -153,7 +155,7 @@ header:
     subtitle: Happy, free, creative.
   # Mask effect of the background image.
   mask:
-    enable: false
+    enable: true
     # Opacity of the mask (value: 0 ~ 1)
     opacity: 0.5
   nav:
@@ -225,14 +227,14 @@ footer:
     color: "#ff0000"
   # Hexo link
   powered:
-    enable: true
+    enable: false
     # Whether to show version after Hexo link (e.g. vX.X.X)
-    version: true
+    version: false
   # Theme link
   theme:
-    enable: true
+    enable: false
     # Whether to show version after theme link (e.g. vX.X.X)
-    version: true
+    version: false
   # Beian information for Chinese users, see: http://www.miitbeian.gov.cn/
   beian:
     enable: false
@@ -281,7 +283,7 @@ back2top:
 sidebar:
   enable: true
   # Optional values: left | right
-  position: right
+  position: left
   # The distance from the top of the page when the sidebar is fixed (Only `px` unit is supported)
   offsetTop: 20px
   # Whether to show horizon line.
@@ -301,7 +303,7 @@ author:
     opacity: 1
     # Mouse hover animation
     # Optional values: turn | shake
-    animation: turn
+    animation: shake
   # Your favorite motto.
   motto: Liangcheng Juves
 
@@ -312,10 +314,10 @@ author:
 # If you can`t find a suitable icon, you can choose to display text by adding the `origin:` prefix.
 # e.g. `origin:sf`, so `sf` will be displayed.
 social:
-  github: https://github.com/ || fab fa-github
-  google: https://plus.google.com/ || fab fa-google
-  twitter: https://twitter.com/ || fab fa-twitter
-  youtube: https://youtube.com/ || fab fa-youtube
+  github: https://github.lcjuves.com || fab fa-github
+  # google: https://plus.google.com/ || fab fa-google
+  twitter: https://twitter.com/LcJuves || fab fa-x-twitter
+  # youtube: https://youtube.com/ || fab fa-youtube
   # segmentfault: https://segmentfault.com/ || origin:sf
   # weibo: https://weibo.com/ || fab fa-weibo
   # zhihu: https://www.zhihu.com/ || origin:知
@@ -324,7 +326,7 @@ social:
   # qq: yournumber || fab fa-qq
 
 social_setting:
-  enable: false
+  enable: true
   # Only show by icon.
   icon_only: true
 
@@ -380,10 +382,10 @@ heading_line: true
 
 # Reward QR Code
 reward:
-  enable: false
+  enable: true
   # Your QR code for collecting money.
-  alipay:
-  wechat:
+  alipay: /images/alipay.svg
+  # wechat:
 
 # ---------------------------------------------------------------
 # Post config
@@ -445,7 +447,7 @@ post_widget:
     horizon_line: true
   # Article sharing
   share:
-    enable: false
+    enable: true
     # The text displayed before the share button.
     label: "Share to: "
     # Optional values: qzone | qq | weibo | wechat | douban | linkedin | facebook | twitter | google
@@ -615,7 +617,7 @@ fbcomments:
 # Busuanzi statistics
 # See: https://busuanzi.ibruce.info/
 busuanzi:
-  enable: false
+  enable: true
   # Only show by icon.
   icon_only: false
   # Number of unique visitor to the entire site.
@@ -658,7 +660,7 @@ algolia_search:
 # Local Search
 # See: https://github.com/wzpan/hexo-generator-search/
 local_search:
-  enable: false
+  enable: true
 
 # Auxiliary search buttons
 # ! -----------------------------------------------------------------------------------------
@@ -680,9 +682,9 @@ assist_search:
 # Canvas-ribbon
 # Dependency: https://github.com/hustcc/ribbon.js
 canvas_ribbon:
-  enable: false
+  enable: true
   # The width of the ribbon.
-  size: 120
+  size: 300
   # The transparency of the ribbon.
   alpha: 0.6
   # The display level of the ribbon.
@@ -706,10 +708,10 @@ canvas_nest:
 # Math and Chart config
 # ---------------------------------------------------------------
 math:
-  enable: false
+  enable: true
   # If true, this function will be enabled on every page.
   # If false, this function will be enabled only if the page where `math: true` is set in `Front-matter`.
-  per_page: false
+  per_page: true
   # ! -------------------------------------------------------------------------------
   # ! Please see the documentation before using. See:
   # ! https://theme-stun.github.io/docs/zh-CN/advanced/third-part.html#mathjax
@@ -723,12 +725,18 @@ math:
       enable: false
       mhchem_js: https://cdn.jsdelivr.net/npm/mathjax-mhchem@3.3.2/mhchem.min.js
   katex:
-    cdn: https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css
+    css: https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css
+    css_integrity: sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn
+    js: https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js
+    js_integrity: sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx
+    auto_render_js: https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js
+    auto_render_js_integrit: sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05
     # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex
     copy_tex:
       enable: true
-      copy_tex_js: https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/copy-tex.min.js
-      copy_tex_css: https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/copy-tex.css
+      copy_tex_js: https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/copy-tex.min.js
+      copy_tex_js_integrity: sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A
+      # copy_tex_css: https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/copy-tex.css
 
 # ---------------------------------------------------------------
 # Other config
@@ -836,7 +844,7 @@ shortcuts:
   # `Ctrl + ←` is the shortcuts to prev post.
   # `Ctrl + →` is the shortcuts to next post.
   switch_post:
-    enable: false
+    enable: true
 
 # Tag cloud
 # If not used, comment it or ignore it.
@@ -914,7 +922,7 @@ cdn:
   # fontawesome: //cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css
   # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
   # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css
-  fontawesome:
+  fontawesome: //cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css
 
   # Using version: 3.4.1
   # Example:
