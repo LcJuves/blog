@@ -11,7 +11,7 @@ shake_file: true
 
 # If true, will add site-subtitle to index page.
 # Remember to set up your site-subtitle in Hexo `_config.yml`.
-index_subtitle: false
+index_subtitle: true
 
 # Set a canonical link tag for your Hexo site.
 # See: https://support.google.com/webmasters/answer/139066
@@ -144,7 +144,7 @@ header:
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
-    url: https://s.cn.bing.net/th?id=OHR.GlenariffForest_EN-CN1292703110_1920x1080.webp&qlt=50
+    url: https://bing.com/th?id=OHR.GlenariffForest_EN-CN1292703110_1920x1080.webp&qlt=50
   # Banner area.
   banner:
     # Effective for all pages.
@@ -165,7 +165,7 @@ header:
     bg_color: "#333"
   # The icon that prompts the user to pull down.
   scroll_down_icon:
-    enable: false
+    enable: true
     # Icon name in FontAwesome, see: https://fontawesome.com/icons
     name: fas fa-angle-down
     animation: true
@@ -213,16 +213,16 @@ footer:
     # If not set, will be used `author` from Hexo main config (e.g. liuyib All Rights Reserved)
     text:
     # Start time. If not set, the current year will be used.
-    since:
+    since: 2020
     # End time. If not set, the current year will be used.
-    end:
+    end: 2023
   # The icon between the copyright and the owner.
   icon:
     enable: true
     # Icon name in FontAwesome, see: https://fontawesome.com/icons
     name: fas fa-heart
     # Heartbeat animation.
-    animation: false
+    animation: true
     # (Please use '' to wrap the value)
     color: "#ff0000"
   # Hexo link
@@ -243,7 +243,7 @@ footer:
   # Any custom text (e.g. Hosted by <a href="https://pages.github.com/" rel="noopener" target="_blank">Github Pages</a>)
   custom:
     enable: false
-    text:
+    text: Hosted by <a href="https://pages.github.com/" rel="noopener" target="_blank">GitHub Pages</a>
 
 # Creative Commons 4.0 International License
 creative_commons:
@@ -320,7 +320,7 @@ social:
   # youtube: https://youtube.com/ || fab fa-youtube
   # segmentfault: https://segmentfault.com/ || origin:sf
   # weibo: https://weibo.com/ || fab fa-weibo
-  # zhihu: https://www.zhihu.com/ || origin:知
+  zhihu: https://zhihu.lcjuves.com || fab fa-zhihu
   # wechat: yournumber || fab fa-weixin
   # telegram: yournumber || fab fa-telegram
   # qq: yournumber || fab fa-qq
