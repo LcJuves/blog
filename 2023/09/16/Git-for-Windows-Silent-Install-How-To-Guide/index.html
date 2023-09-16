@@ -1,0 +1,578 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;es&quot;,&quot;zh-CN&quot;,&quot;zh-HK&quot;,&quot;default&quot;]"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/stun-logo.svg?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/stun-logo.svg?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="Git is a distributed version-control system for tracking changes in source code during software development. This article will serve as an informative guide and give you a clear understanding of how t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git for Windows Silent Install">
+<meta property="og:url" content="https://blog.lcjuves.com/2023/09/16/Git-for-Windows-Silent-Install-How-To-Guide/index.html">
+<meta property="og:site_name" content="Liangcheng Juves&#39; Blog">
+<meta property="og:description" content="Git is a distributed version-control system for tracking changes in source code during software development. This article will serve as an informative guide and give you a clear understanding of how t">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-09-16T05:19:02.000Z">
+<meta property="article:modified_time" content="2023-09-16T13:31:34.403Z">
+<meta property="article:author" content="LcJuves">
+<meta name="twitter:card" content="summary"><title>Git for Windows Silent Install | Liangcheng Juves' Blog</title><link ref="canonical" href="https://blog.lcjuves.com/2023/09/16/Git-for-Windows-Silent-Install-How-To-Guide/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: true,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: {"switchPost":true},
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">Search</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Liangcheng Juves' Blog</div><div class="header-banner-info__subtitle">Happy, free, creative.</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">Git for Windows Silent Install</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2023-09-16</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2023-09-16</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">Visited</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body"><p>Git is a distributed version-control system for tracking changes in source code during software development. This article will serve as an informative guide and give you a clear understanding of how to perform a silent installation of Git from the command line using the EXE installer.</p>
+
+        <h2 id="how-to-install-git-silently">
+          <a href="#how-to-install-git-silently" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#how-to-install-git-silently"></a> How to Install Git Silently</h2>
+      
+
+        <h3 id="git-for-windows-silent-install-32-bit-exe">
+          <a href="#git-for-windows-silent-install-32-bit-exe" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#git-for-windows-silent-install-32-bit-exe"></a> Git for Windows Silent Install 32-bit (EXE)</h3>
+      
+<ol>
+<li><strong>Navigate</strong> to: <span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://github.com/git-for-windows/git/releases">https://github.com/git-for-windows/git/releases</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><strong>Select</strong> the version of your choice</li>
+<li><strong>Download</strong> the <strong>Git-x.y.z-32-bit.exe</strong> to a folder created at <strong>(C:\Downloads)</strong></li>
+<li>Open an <strong>Elevated Command Prompt</strong> by Right-Clicking on Command Prompt and select <strong>Run as Administrator</strong></li>
+<li><strong>Navigate</strong> to the <strong>C:\Downloads</strong> folder</li>
+<li>Enter the following command: <strong>Git-x.y.z-32-bit.exe /VERYSILENT /NORESTART</strong></li>
+<li>Press <strong>Enter</strong></li>
+</ol>
+<p>After a minute or so you should see the Git shortcuts in the <strong>Start Menu, Installation Directory</strong>, and <strong>Programs and Features</strong> in the Control Panel.</p>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th style="text-align:left">Software Title:</th>
+<th style="text-align:left">Git (32-bit)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Vendor:</td>
+<td style="text-align:left">The Git Development Community</td>
+</tr>
+<tr>
+<td style="text-align:left">Architecture:</td>
+<td style="text-align:left">x86</td>
+</tr>
+<tr>
+<td style="text-align:left">Installer Type:</td>
+<td style="text-align:left">EXE</td>
+</tr>
+<tr>
+<td style="text-align:left">Silent Install Switch:</td>
+<td style="text-align:left"><strong>Git-x.y.z-32-bit.exe /VERYSILENT /NORESTART</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">Silent Uninstall Switch (32-bit System)</td>
+<td style="text-align:left"><strong>“%ProgramFiles%\Git\unins000.exe” /VERYSILENT /NORESTART</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">Silent Uninstall Switch (64-bit System)</td>
+<td style="text-align:left"><strong>“%ProgramFiles(x86)%\Git\unins000.exe” /VERYSILENT /NORESTART</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">Download Link:</td>
+<td style="text-align:left"><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://github.com/git-for-windows/git/releases">https://github.com/git-for-windows/git/releases</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>PowerShell Script:</strong></td>
+<td style="text-align:left"><strong><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://silentinstallhq.com/git-for-windows-install-and-uninstall-powershell/">https://silentinstallhq.com/git-for-windows-install-and-uninstall-powershell/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Detection Script:</strong></td>
+<td style="text-align:left"><strong><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://silentinstallhq.com/create-a-custom-detection-script-for-git-for-windows-powershell/">https://silentinstallhq.com/create-a-custom-detection-script-for-git-for-windows-powershell/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<hr>
+
+        <h3 id="git-for-windows-silent-install-64-bit-exe">
+          <a href="#git-for-windows-silent-install-64-bit-exe" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#git-for-windows-silent-install-64-bit-exe"></a> Git for Windows Silent Install 64-bit (EXE)</h3>
+      
+<ol>
+<li><strong>Navigate</strong> to: <span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://github.com/git-for-windows/git/releases">https://github.com/git-for-windows/git/releases</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><strong>Select</strong> the version of your choice</li>
+<li><strong>Download</strong> the <strong>Git-x.y.z-64-bit.exe</strong> to a folder created at <strong>(C:\Downloads)</strong></li>
+<li>Open an <strong>Elevated Command Prompt</strong> by Right-Clicking on Command Prompt and select <strong>Run as Administrator</strong></li>
+<li><strong>Navigate</strong> to the <strong>C:\Downloads</strong> folder</li>
+<li>Enter the following command: <strong>Git-x.y.z-64-bit.exe /VERYSILENT /NORESTART</strong></li>
+<li>Press <strong>Enter</strong></li>
+</ol>
+<p>After a minute or so you should see the Git shortcuts in the <strong>Start Menu, Installation Directory</strong>, and <strong>Programs and Features</strong> in the Control Panel.</p>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th style="text-align:left">Software Title:</th>
+<th style="text-align:left">Git (64-bit)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Vendor:</td>
+<td style="text-align:left">The Git Development Community</td>
+</tr>
+<tr>
+<td style="text-align:left">Architecture:</td>
+<td style="text-align:left">x64</td>
+</tr>
+<tr>
+<td style="text-align:left">Installer Type:</td>
+<td style="text-align:left">EXE</td>
+</tr>
+<tr>
+<td style="text-align:left">Silent Install Switch:</td>
+<td style="text-align:left"><strong>Git-x.y.z-64-bit.exe /VERYSILENT /NORESTART</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">Silent Uninstall Switch:</td>
+<td style="text-align:left"><strong>“%ProgramFiles%\Git\unins000.exe” /VERYSILENT /NORESTART</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">Download Link:</td>
+<td style="text-align:left"><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://github.com/git-for-windows/git/releases">https://github.com/git-for-windows/git/releases</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>PowerShell Script:</strong></td>
+<td style="text-align:left"><strong><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://silentinstallhq.com/git-for-windows-install-and-uninstall-powershell/">https://silentinstallhq.com/git-for-windows-install-and-uninstall-powershell/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Detection Script:</strong></td>
+<td style="text-align:left"><strong><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://silentinstallhq.com/create-a-custom-detection-script-for-git-for-windows-powershell/">https://silentinstallhq.com/create-a-custom-detection-script-for-git-for-windows-powershell/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>The information above provides a quick overview of the software title, vendor, silent install, and silent uninstall switches. The download link provided take you directly to the vendors website. Continue reading if you are interested in additional details and configurations.</p>
+<hr>
+<hr>
+
+        <h2 id="additional-configurations">
+          <a href="#additional-configurations" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#additional-configurations"></a> Additional Configurations</h2>
+      
+
+        <h3 id="create-a-git-installation-log-file">
+          <a href="#create-a-git-installation-log-file" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#create-a-git-installation-log-file"></a> Create a Git Installation Log File</h3>
+      
+<p>The Git installer offers the option to generate a log file during installation to assist with troubleshooting should any problems arise. You can use the following commands to create a verbose log file with details about the installation.</p>
+
+        <h4 id="git-32-bit-silent-install-exe-with-logging">
+          <a href="#git-32-bit-silent-install-exe-with-logging" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#git-32-bit-silent-install-exe-with-logging"></a> Git 32-bit Silent Install (EXE) with Logging</h4>
+      
+<blockquote>
+<p><strong>Git-x.y.z-32-bit.exe /VERYSILENT /NORESTART /LOG=“%WINDIR%\Temp\Git32-Install.log”</strong></p>
+</blockquote>
+
+        <h4 id="git-64-bit-silent-install-exe-with-logging">
+          <a href="#git-64-bit-silent-install-exe-with-logging" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#git-64-bit-silent-install-exe-with-logging"></a> Git 64-bit Silent Install (EXE) with Logging</h4>
+      
+<blockquote>
+<p><strong>Git-x.y.z-64-bit.exe /VERYSILENT /NORESTART /LOG=“%WINDIR%\Temp\Git64-Install.log”</strong></p>
+</blockquote>
+<hr>
+<hr>
+
+        <h3 id="enable-git-auto-updates">
+          <a href="#enable-git-auto-updates" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#enable-git-auto-updates"></a> Enable Git Auto Updates</h3>
+      
+<p>The Git installer does NOT enable auto updates by default. If you want auto updates enabled, you can run the following command line switch.</p>
+
+        <h4 id="git-32-bit-silent-install-exe-with-auto-updates-enabled">
+          <a href="#git-32-bit-silent-install-exe-with-auto-updates-enabled" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#git-32-bit-silent-install-exe-with-auto-updates-enabled"></a> Git 32-bit Silent Install (EXE) with Auto Updates Enabled</h4>
+      
+<blockquote>
+<p><strong>Git-x.y.z-32-bit.exe /VERYSILENT /NORESTART /COMPONENTS=ext,ext\shellhere,ext\guihere,gitlfs,assoc,assoc_sh,autoupdate</strong></p>
+</blockquote>
+
+        <h4 id="git-64-bit-silent-install-exe-with-auto-updates-enabled">
+          <a href="#git-64-bit-silent-install-exe-with-auto-updates-enabled" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#git-64-bit-silent-install-exe-with-auto-updates-enabled"></a> Git 64-bit Silent Install (EXE) with Auto Updates Enabled</h4>
+      
+<blockquote>
+<p><strong>Git-x.y.z-64-bit.exe /VERYSILENT /NORESTART /COMPONENTS=ext,ext\shellhere,ext\guihere,gitlfs,assoc,assoc_sh,autoupdate</strong></p>
+</blockquote>
+<hr>
+<hr>
+
+        <h3 id="include-the-git-desktop-shortcut-during-install">
+          <a href="#include-the-git-desktop-shortcut-during-install" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#include-the-git-desktop-shortcut-during-install"></a> Include the Git Desktop Shortcut During Install</h3>
+      
+<p>The Git installer does NOT include a desktop shortcut by default. If you want the desktop shortcut included during installation, then you can run the following command line switch.</p>
+
+        <h4 id="git-32-bit-silent-install-exe-with-desktop-shortcut">
+          <a href="#git-32-bit-silent-install-exe-with-desktop-shortcut" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#git-32-bit-silent-install-exe-with-desktop-shortcut"></a> Git 32-bit Silent Install (EXE) with Desktop Shortcut</h4>
+      
+<blockquote>
+<p><strong>Git-x.y.z-32-bit.exe /VERYSILENT /NORESTART /COMPONENTS=icons,icons\desktop,ext,ext\shellhere,ext\guihere,gitlfs,assoc,assoc_sh</strong></p>
+</blockquote>
+
+        <h4 id="git-64-bit-silent-install-exe-with-desktop-shortcut">
+          <a href="#git-64-bit-silent-install-exe-with-desktop-shortcut" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#git-64-bit-silent-install-exe-with-desktop-shortcut"></a> Git 64-bit Silent Install (EXE) with Desktop Shortcut</h4>
+      
+<blockquote>
+<p><strong>Git-x.y.z-64-bit.exe /VERYSILENT /NORESTART /COMPONENTS=icons,icons\desktop,ext,ext\shellhere,ext\guihere,gitlfs,assoc,assoc_sh</strong></p>
+</blockquote>
+<hr>
+<hr>
+
+        <h3 id="change-the-git-default-installation-directory">
+          <a href="#change-the-git-default-installation-directory" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#change-the-git-default-installation-directory"></a> Change the Git Default Installation Directory</h3>
+      
+<p>You can also change the default installation directory by using the following command line parameters. In this example, I’m installing GIMP to <strong>“C:\Git”</strong></p>
+
+        <h4 id="git-32-bit-exe">
+          <a href="#git-32-bit-exe" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#git-32-bit-exe"></a> Git 32-bit (EXE)</h4>
+      
+<blockquote>
+<p><strong>Git-x.y.z-32-bit.exe /DIR=“C:\Git” /VERYSILENT /NORESTART</strong></p>
+</blockquote>
+
+        <h4 id="git-64-bit-exe">
+          <a href="#git-64-bit-exe" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#git-64-bit-exe"></a> Git 64-bit (EXE)</h4>
+      
+<blockquote>
+<p><strong>Git-x.y.z-64-bit.exe /DIR=“C:\Git” /VERYSILENT /NORESTART</strong></p>
+</blockquote>
+<hr>
+<hr>
+
+        <h3 id="how-to-uninstall-git-for-windows-silently">
+          <a href="#how-to-uninstall-git-for-windows-silently" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#how-to-uninstall-git-for-windows-silently"></a> How to Uninstall Git for Windows Silently</h3>
+      
+<p><em>Check out the following posts for a scripted solution:</em></p>
+<blockquote>
+<p><strong><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://silentinstallhq.com/git-for-windows-install-and-uninstall-powershell/">Git for Windows Install and Uninstall (PowerShell)</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></strong><br> <strong><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://silentinstallhq.com/git-for-windows-silent-uninstall-powershell/">Git for Windows Silent Uninstall (PowerShell)</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></strong></p>
+</blockquote>
+<ol>
+<li>Open an <strong>Elevated Command Prompt</strong> by Right-Clicking on Command Prompt and select <strong>Run as Administrator</strong></li>
+<li>Enter one of the following commands:</li>
+</ol>
+
+        <h4 id="git-32-bit-silent-uninstall-exe-on-32-bit-system">
+          <a href="#git-32-bit-silent-uninstall-exe-on-32-bit-system" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#git-32-bit-silent-uninstall-exe-on-32-bit-system"></a> Git 32-bit Silent Uninstall (EXE) on 32-bit System</h4>
+      
+<blockquote>
+<p><strong>“%ProgramFiles%\Git\unins000.exe” /VERYSILENT /NORESTART</strong></p>
+</blockquote>
+
+        <h4 id="git-32-bit-silent-uninstall-exe-on-64-bit-system">
+          <a href="#git-32-bit-silent-uninstall-exe-on-64-bit-system" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#git-32-bit-silent-uninstall-exe-on-64-bit-system"></a> Git 32-bit Silent Uninstall (EXE) on 64-bit System</h4>
+      
+<blockquote>
+<p><strong>“%ProgramFiles(x86)%\Git\unins000.exe” /VERYSILENT /NORESTART</strong></p>
+</blockquote>
+
+        <h4 id="git-64-bit-silent-uninstall-exe-on-64-bit-system">
+          <a href="#git-64-bit-silent-uninstall-exe-on-64-bit-system" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#git-64-bit-silent-uninstall-exe-on-64-bit-system"></a> Git 64-bit Silent Uninstall (EXE) on 64-bit System</h4>
+      
+<blockquote>
+<p><strong>“%ProgramFiles%\Git\unins000.exe” /VERYSILENT /NORESTART</strong></p>
+</blockquote>
+<p>Always make sure to test everything in a development environment prior to implementing anything into production. The information in this article is provided “As Is” without warranty of any kind.</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="https://blog.lcjuves.com">LcJuves</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="https://blog.lcjuves.com/2023/09/16/Git-for-Windows-Silent-Install-How-To-Guide/">https://blog.lcjuves.com/2023/09/16/Git-for-Windows-Silent-Install-How-To-Guide/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><div class="post-share"><div class="social-share" data-sites="qzone, qq, weibo, wechat, douban, linkedin, facebook, twitter, google">Share to: </div></div><div class="post-reward reward"><div class="reward-button">Buy me a coffee</div><div class="reward-qrcode"><span class="reward-qrcode-alipay"><img class="reward-qrcode-alipay__img" src="/images/alipay.svg"><div class="reward-qrcode-alipay__text">Alipay</div></span></div></div><nav class="post-paginator paginator"></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#how-to-install-git-silently"><span class="toc-number">1.</span> <span class="toc-text">
+           How to Install Git Silently</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-for-windows-silent-install-32-bit-exe"><span class="toc-number">1.1.</span> <span class="toc-text">
+           Git for Windows Silent Install 32-bit (EXE)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-for-windows-silent-install-64-bit-exe"><span class="toc-number">1.2.</span> <span class="toc-text">
+           Git for Windows Silent Install 64-bit (EXE)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#additional-configurations"><span class="toc-number">2.</span> <span class="toc-text">
+           Additional Configurations</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#create-a-git-installation-log-file"><span class="toc-number">2.1.</span> <span class="toc-text">
+           Create a Git Installation Log File</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-32-bit-silent-install-exe-with-logging"><span class="toc-number">2.1.1.</span> <span class="toc-text">
+           Git 32-bit Silent Install (EXE) with Logging</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-64-bit-silent-install-exe-with-logging"><span class="toc-number">2.1.2.</span> <span class="toc-text">
+           Git 64-bit Silent Install (EXE) with Logging</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#enable-git-auto-updates"><span class="toc-number">2.2.</span> <span class="toc-text">
+           Enable Git Auto Updates</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-32-bit-silent-install-exe-with-auto-updates-enabled"><span class="toc-number">2.2.1.</span> <span class="toc-text">
+           Git 32-bit Silent Install (EXE) with Auto Updates Enabled</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-64-bit-silent-install-exe-with-auto-updates-enabled"><span class="toc-number">2.2.2.</span> <span class="toc-text">
+           Git 64-bit Silent Install (EXE) with Auto Updates Enabled</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#include-the-git-desktop-shortcut-during-install"><span class="toc-number">2.3.</span> <span class="toc-text">
+           Include the Git Desktop Shortcut During Install</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-32-bit-silent-install-exe-with-desktop-shortcut"><span class="toc-number">2.3.1.</span> <span class="toc-text">
+           Git 32-bit Silent Install (EXE) with Desktop Shortcut</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-64-bit-silent-install-exe-with-desktop-shortcut"><span class="toc-number">2.3.2.</span> <span class="toc-text">
+           Git 64-bit Silent Install (EXE) with Desktop Shortcut</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#change-the-git-default-installation-directory"><span class="toc-number">2.4.</span> <span class="toc-text">
+           Change the Git Default Installation Directory</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-32-bit-exe"><span class="toc-number">2.4.1.</span> <span class="toc-text">
+           Git 32-bit (EXE)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-64-bit-exe"><span class="toc-number">2.4.2.</span> <span class="toc-text">
+           Git 64-bit (EXE)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#how-to-uninstall-git-for-windows-silently"><span class="toc-number">2.5.</span> <span class="toc-text">
+           How to Uninstall Git for Windows Silently</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-32-bit-silent-uninstall-exe-on-32-bit-system"><span class="toc-number">2.5.1.</span> <span class="toc-text">
+           Git 32-bit Silent Uninstall (EXE) on 32-bit System</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-32-bit-silent-uninstall-exe-on-64-bit-system"><span class="toc-number">2.5.2.</span> <span class="toc-text">
+           Git 32-bit Silent Uninstall (EXE) on 64-bit System</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-64-bit-silent-uninstall-exe-on-64-bit-system"><span class="toc-number">2.5.3.</span> <span class="toc-text">
+           Git 64-bit Silent Uninstall (EXE) on 64-bit System</span></a></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Game of Life</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.lcjuves.com" target="_blank" rel="noopener" data-popover="GitHub" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://twitter.com/LcJuves" target="_blank" rel="noopener" data-popover="Twitter" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-x-twitter"></i></span></a><a class="sidebar-ov-social-item" href="https://zhihu.lcjuves.com" target="_blank" rel="noopener" data-popover="Zhihu" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-zhihu"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">1</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020-2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>LcJuves</span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">Visitors</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">Views</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="Search for Posts (Support multiple keywords)"></div><div class="search-results"></div></div><script src="//cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js" size="300" alpha="0.6" zIndex="-1"></script><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.json';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ Untitled ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keyup', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css({ overflow: 'auto' });
+  $('.search-popup').css({ display: 'none' });
+  $('.search-mask').css({ display: 'none' });
+}
+
+window.addEventListener('load', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);
+
+function safeOpenUrl(url) {
+  var newTab = window.open();
+  newTab.opener = null;
+  newTab.location = url;
+}
+
+function extSearch(engine) {
+  var engines = {
+    google: 'https://www.google.com/search?q=',
+    bing: 'https://cn.bing.com/search?q=',
+    baidu: 'https://www.baidu.com/s?ie=UTF-8&wd=',
+  };
+  var host = window.location.host;
+  var query = $('.search-input input').val().toLowerCase().trim();
+  var uri = engines[engine] + query + ' site:' + host;
+
+  if (query) {
+    safeOpenUrl(uri);
+  } else {
+    Stun.utils.popAlert('warning', 'Please enter characters');
+  }
+}
+
+var assistSearchList = window.CONFIG.assistSearch;
+
+if (Array.isArray(assistSearchList)) {
+  assistSearchList.forEach(function (name) {
+    document.querySelector('.search-btns-item--' + name).addEventListener('click', function () {
+      extSearch(name);
+    }, false);
+  });
+}</script><link href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" rel="stylesheet" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/copy-tex.min.js" integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script><script src="/js/utils.js?v=2.8.0"></script><script src="/js/stun-boot.js?v=2.8.0"></script><script src="/js/scroll.js?v=2.8.0"></script><script src="/js/header.js?v=2.8.0"></script><script src="/js/sidebar.js?v=2.8.0"></script><script type="application/json" src="/search.json"></script></body></html>
